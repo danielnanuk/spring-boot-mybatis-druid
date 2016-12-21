@@ -1,0 +1,27 @@
+package me.nielcho;
+
+import me.nielcho.mapper.CityMapper;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class BootMybatisApplication implements CommandLineRunner {
+
+    final private CityMapper cityMapper;
+
+    public BootMybatisApplication(CityMapper cityMapper) {
+        this.cityMapper = cityMapper;
+    }
+
+    public static void main(String[] args) {
+        SpringApplication.run(BootMybatisApplication.class, args);
+    }
+
+    @Override
+    public void run(String... args) throws Exception {
+        System.out.println(this.cityMapper.findByState("CA"));
+    }
+
+
+}
